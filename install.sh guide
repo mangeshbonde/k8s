@@ -1,0 +1,26 @@
+Go into EC2 instance connect ssh.
+vim install.sh 
+paste the code from install.sh
+change the permission 
+chmod 777 install.sh
+run the script --->  ./install.sh
+After the script is done, you can check if the application is running by using the command:
+docker --version
+kubectl version
+kind version
+You should see the versions of Docker, Kubernetes, and Kind displayed in the terminal. This indicates that the installation was successful and the tools are ready to use.
+
+create configuration file of creating cluster
+mkdir kind-cluster
+cd kind-cluster
+vim kind-config.yml
+paste the code from  kind-config.yml
+create the cluster from kind-config.yml using command :
+kind create cluster --name=tws-cluster --config=kind-config.yaml
+After the cluster is created, you can check the status of the cluster using the command:
+kubectl cluster-info --context kind-tws-cluster
+This command will display the cluster information, confirming that the cluster is up and running. You can also use the command:
+kubectl get nodes
+to see the nodes in the cluster and their status. If the nodes are listed and in a ready state, it means your Kubernetes cluster is successfully set up with Kind.
+To deploy your application on the Kubernetes cluster, you can create a deployment file (e.g., deployment.yaml) and apply it using kubectl:
+kubectl apply -f deployment.yaml

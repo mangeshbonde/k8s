@@ -61,6 +61,42 @@ kind version
 If versions are displayed, installation is successful.
 
 ---
+## 🐳 Fix Docker Permission Issue for KIND
+
+If you see an error like:
+
+permission denied while trying to connect to the docker API
+
+
+Follow these steps:
+
+---
+
+### 1️⃣ Add user to Docker group
+
+```bash
+sudo usermod -aG docker ubuntu
+
+You are logged in as ubuntu, so use that instead of $USER.
+
+2️⃣ Apply group changes ⚠️ (VERY IMPORTANT)
+
+Run:
+
+newgrp docker
+
+OR
+
+Logout and login again (recommended)
+
+3️⃣ Test Docker access (this MUST work)
+docker ps
+
+✅ If it works → You’re ready to use KIND
+❌ If not → Repeat steps or check Docker service
+
+
+---
 
 ## 📁 Step 4: Create Kind Cluster Configuration
 

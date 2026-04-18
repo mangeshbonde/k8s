@@ -163,6 +163,17 @@ kubectl apply -f deployment.yaml
 * Ready for DevOps / Cloud practice
 
 ---
+## Create ingress Controller for Nginx
+* simply copy this link and paste it in EC2 in /home/ubuntu  or /home/ec2-user
+```bash
+kubectl apply -f https://kind.sigs.k8s.io/examples/ingress/deploy-ingress-nginx.yaml
+```
+* After that check namespace by using :
+```bash
+kubectl get ns
+```
+
+* You can see namespace i.e  ingress-nginx
 
 ## 💡 Notes
 
